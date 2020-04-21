@@ -1,0 +1,60 @@
+body {
+  background-color: whitesmoke;
+  font-family: "Cormorant Garamond", serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  font-family: "noto sans light";
+  width: 100%;
+  margin-top: 40px;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  user-select: none;
+}
+
+header>.count {
+  display: none;
+}
+
+footer {
+  width: 100%;
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  user-select: none;
+}
+
+.blackemail {
+  display: none;
+  color: yellow;
+}
+
+.blackinsta {
+  display: none;
+  color: yellow;
+}
+
+.underline-link {
+  margin: 5px;
+  border-bottom: 1px solid black;
+}
+
+.underline-link:hover {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.count-area {
+  display: none;
+}
+
+.image {
+  width: 10%;
+  user-select: none;
+  position: absolute;
+}

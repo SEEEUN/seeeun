@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="./style.css" rel="stylesheet" />
+    <title>Park Si Eun</title>
+  </head>
+  <body>
+    <header>
+      <b class="clickseemore">click to see more</b>
+      <div class="count-area">
+        <span class="count">0</span>
+        <span class="count-delimeter">/ 8 </span>
+      </div>
+    </header>
+
+    <footer>
+      <p class="blackemail">uiop11p@gmail.com</p>
+      <p class="blackinsta">@seeeun_in</p>
+      <b>PARK SI EUN</b>
+      <p>Graphic Designer</p>
+      <span class="underline-link">TALK</span>
+      <span class="underline-link">INSTAGRAM</span>
+    </footer>
+
+    <div class="images"></div>
+    <div class="cursor"></div>
+
+    <script>
+      const bodyRef = document.querySelector("body");
+      const underAllRef = document.querySelectorAll(".underline-link");
+      const blackRef = document.querySelector(".blackemail");
+      const clickseemoreRef = document.querySelector(".clickseemore");
+      const countAreaRef = document.querySelector(".count-area");
+      const countnumberupRef = document.querySelector(".count");
+      const imagesRef = document.querySelector(".images");
+      const cursorRef = document.querySelector(".cursor");
+      const cursorimg = ["./images/0_1.png", "./images/0_2.png"];
+      const images = [
+        "./images/lorem.png",
+        "./images/island.png",
+        "./images/fire.png",
+        "./images/rrr.png",
+        "./images/flower.png",
+        "./images/1.jpg",
+      ];
+
+      let CursorImageIndex = 0;
+      let currentImageIndex = 0;
+
+      function underMouseOverListener() {
+        bodyRef.style.backgroundColor = "black";
+        blackRef.style.display = "block";
+        const allimages = document.querySelectorAll(".image");
+        for (let i = 0; i < allimages.length; i++) {
+          allimages[i].style.display = "none";
+        }
+      }
+
+      function underMouseOutListener() {
+        bodyRef.style.backgroundColor = "whitesmoke";
+        blackRef.style.display = "none";
+        const allimages = document.querySelectorAll(".image");
+        for (let i = 0; i < allimages.length; i++) {
+          allimages[i].style.display = "inline-block";
+        }
+      }
+
+      // body 또는 이미지를 클릭했을 때
+      function bodyClickListener(event) {
+        const mousePos = {
+          x: event.pageX,
+          y: event.pageY,
+        };
+
+        // click see more 일 때
+        if (+countnumberupRef.innerHTML === 0) {
+          clickseemoreRef.style.display = "none";
+          countAreaRef.style.display = "block";
+        }
+
+        count();
+
+        if (currentImageIndex < images.length) {
+          makeimage(mousePos);
+        } else {
+          // 초기화
+          const imageRef = document.querySelectorAll(".image");
+          imageRef.forEach((image) => {
+            image.remove();
+          });
+          currentImageIndex = 0;
+          makeimage(mousePos);
+          countnumberupRef.innerHTML = 1;
+        }
+
+        cursorImages();
+      }
+
+      function makeimage(mousePos) {
+        const image = document.createElement("img");
+        const rotateDegree = Math.floor(Math.random() * 180) - 90;
+        image.src = images[currentImageIndex];
+        image.style.left = `${mousePos.x}px`;
+        image.style.top = `${mousePos.y}px`;
+        image.className = "image";
+        image.style.transform = `rotateZ(${rotateDegree}deg)`;
+        imagesRef.appendChild(image);
+        currentImageIndex = currentImageIndex + 1;
+      }
+
+      function cursorImages() {
+        document.body.style.cursor = `url('${cursorimg[CursorImageIndex]}'), default`;
+        CursorImageIndex = CursorImageIndex + 1;
+        if (CursorImageIndex >= cursorimg.length) {
+          CursorImageIndex = 0;
+        }
+      }
+
+      function count() {
+        countnumberupRef.innerHTML = Number(countnumberupRef.innerHTML) + 1;
+
+        if (countnumberupRef.innerHTML > 8) {
+          countnumberupRef.innerHTML = 1;
+        }
+      }
+
+      for (var index = 0; index < underAllRef.length; index++) {
+        underAllRef[index].addEventListener(
+          "mouseover",
+          underMouseOverListener
+        );
+        underAllRef[index].addEventListener("mouseout", underMouseOutListener);
+      }
+
+      bodyRef.addEventListener("click", bodyClickListener);
+    </script>
+  </body>
+</html>

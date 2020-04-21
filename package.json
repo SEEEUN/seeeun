@@ -1,0 +1,27 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "Park Si Eun portpolio site",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SEEEUN/seeeun/static-template.git"
+  },
+  "keywords": [
+    "template",
+    "codesandbox",
+    "static"
+  ],
+  "author": "SEEEUN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SEEEUN/seeeun/issues"
+  },
+  "homepage": "https://github.com/SEEEUN/seeeun/#readme",
+  "devDependencies": {
+    "serve": "^11.2.0"
+  }
+}
