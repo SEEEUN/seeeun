@@ -58,3 +58,9 @@ footer {
   user-select: none;
   position: absolute;
 }
+
+@media screen and (max-width: 768px) {
+  .image {
+    width: 20%;
+  }
+}
