@@ -1,19 +1,31 @@
 body {
-  background-color: whitesmoke;
-  font-family: "Cormorant Garamond", serif;
+  background-color: white;
+  font-family: "ITC Avant Garde Gothic Std";
   width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
 
+.name{
+  font-family: "ITC Avant Garde Gothic Std", Medium;
+  font-weight: bold;
+  letter-spacing :0.9px;
+}
+
 header {
-  font-family: "noto sans light";
+  font-family: "Chalet",;
+  font-weight: normal;
   width: 100%;
   margin-top: 40px;
   position: absolute;
   top: 0;
   text-align: center;
   user-select: none;
+}
+
+.clickseemore{
+  font-family: "Chalet",;
+  font-weight: normal;
 }
 
 header>.count {
@@ -30,12 +42,14 @@ footer {
 }
 
 .blackemail {
+  margin-bottom: 605px;
   display: none;
   color: yellow;
 }
 
 .blackinsta {
   display: none;
+  margin-bottom: 605px;
   color: yellow;
 }
 
@@ -54,11 +68,12 @@ footer {
 }
 
 .image {
-  width: 10%;
+  width:1px
   user-select: none;
   position: absolute;
 }
 
+/* 모바일에서 768이하의 이미지들을 width 20으로 한다 */
 @media screen and (max-width: 768px) {
   .image {
     width: 20%;
